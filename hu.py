@@ -224,8 +224,15 @@ else:
        select_file_name=input('filename:')
        open_file=open(select_file_name,'r')
        all_content=open_file.readlines()
-       print(f'All content being read from file {select_file_name}:\n\t')
-       loop_over(text_color=colors[3],iterable_container=all_content,delay_time=0.01)
+       mysequence=list(range(1,100+1,1))
+       for num in tqdm.tqdm(mysequence,desc='Loading content',colour='CYAN',ncols=100):
+           time.sleep(0.0001)
+       else:
+           print('All content has been loaded...')
+           time.sleep(1)
+           print(f'All content being read from file {select_file_name}:\n\t')
+           time.sleep(1)
+           loop_over(text_color=colors[3],iterable_container=all_content,delay_time=0.01)
      elif command not in commands or command!='help':
        error_msg(error_text=f"CommandError:'{command}' is not recognized as an internal or external command,operable program or batch file.")
     except FileNotFoundError:
